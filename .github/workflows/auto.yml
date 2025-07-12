@@ -1,14 +1,31 @@
-name: Update README (No Push)
-on: workflow_dispatch
+name: Update README Date
+
+on:
+  workflow_dispatch:  # Allow manual triggering
+  schedule:
+    - cron: '0 * * * *'  # Runs hourly (optional)
+
 jobs:
-  update:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: |
-          echo "# শেষ আপডেট: $(date +'%Y-%m-%d %H:%M:%S')" > README.md
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false  # Prevents accidental pushes
+
+      - name: Update README
+        run: |
+          # Update README with current timestamp
+          echo "# Last Updated" > README.md
+          echo "Updated at: $(date +'%Y-%m-%d %H:%M:%S %Z')" >> README.md
+
+      - name: Create local commit
+        run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add README.md
-          git commit -m "আপডেট: $(date)" || echo "⚠️ কমিট তৈরি হলো (তবে পুশ করা হবে না)"
-      - run: git show --stat  # লগে দেখাবে (কমিট কিন্তু পুশ হবে না)
+          git commit -m "Update timestamp: $(date +'%Y-%m-%d %H:%M:%S')"
+          
+          # Verify the commit was created
+          git log -1 --oneline
