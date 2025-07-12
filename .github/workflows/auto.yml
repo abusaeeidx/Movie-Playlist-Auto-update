@@ -1,4 +1,4 @@
-name: Auto Commit Date to README
+name: Auto Commit README
 
 on:
   schedule:
@@ -6,16 +6,13 @@ on:
   workflow_dispatch:
 
 jobs:
-  commit-date:
+  update-readme:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v3
-
-      - run: echo "🕒 Auto update: $(date -u)" >> README.md
-
+      - run: echo "Last update: $(date -u)" >> README.md
       - run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
           git add README.md
-          git commit -m "📝 Update README.md with date: $(date -u)" || echo "No changes to commit"
+          git commit -m "Auto update: $(date -u)" || true
