@@ -1,18 +1,26 @@
-name: Auto Commit README
+name: Auto-Commit README with Date
 
 on:
   schedule:
-    - cron: '0 3 * * *'
-  workflow_dispatch:
+    - cron: '0 0 * * *'  # Runs daily at midnight UTC
+  workflow_dispatch:     # Allows manual triggering
 
 jobs:
-  update:
+  update-readme:
     runs-on: ubuntu-latest
+    
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Last update: $(date -u)" >> README.md
-      - run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git add README.md
-          git commit -m "Update README: $(date -u)" || true
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Update README with current date
+      run: |
+        echo "# Daily Update" > README.md
+        echo "Last updated: $(date +'%Y-%m-%d %H:%M:%S')" >> README.md
+        
+    - name: Commit changes
+      run: |
+        git config --local user.email "actions@github.com"
+        git config --local user.name "GitHub Actions"
+        git add README.md
+        git commit -m "Update README with date $(date +'%Y-%m-%d')" --allow-empty
