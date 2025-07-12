@@ -1,9 +1,9 @@
-name: Auto-Commit README with Date
+name: Auto-Commit README with Date (No Push)
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs daily at midnight UTC
-  workflow_dispatch:     # Allows manual triggering
+    - cron: '0 0 * * *'  # Daily at midnight UTC
+  workflow_dispatch:     # Manual trigger
 
 jobs:
   update-readme:
@@ -13,21 +13,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Needed to allow commits
+        fetch-depth: 0  # Needed for commits
     
     - name: Update README with current date
       run: |
         echo "# Daily Update" > README.md
         echo "Last updated: $(date +'%Y-%m-%d %H:%M:%S')" >> README.md
         
-    - name: Commit changes
+    - name: Commit changes (locally, no push)
       run: |
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add README.md
         git commit -m "Update README with date $(date +'%Y-%m-%d')"
-    
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        echo "Commit created (but not pushed)."
