@@ -1,1 +1,36 @@
-# Movie-Playlist-Auto-update
+# 🖥️🔥 Auto Update Movie M3U Playlist! 🚀📢
+
+━━━━━━━━━━━━━
+
+🔐 **Must unlock first**
+
+📥 **Get the Playlist:**  
+👉 [Click here to unlock and get the playlist](https://vplink.in/r6vh)
+
+🔓 Unlock now & enjoy!
+
+━━━━━━━━━━━━━
+
+## 🌟 Features
+✅ Unlock once → Permanent access  
+✅ Auto updates every day  
+✅ Buffer-free streaming  
+✅ Bollywood & Hollywood movies  
+✅ Bangla & Bangla dubbed movies  
+✅ Hindi, Telugu, Tamil movies  
+✅ Popular & trending content  
+✅ 100% free & one-time unlock  
+✅ Movies from all over the world  
+✅ Latest movies & web series auto-added  
+✅ Smart categories: Action, Drama, Comedy, Horror & more  
+✅ Works with all popular IPTV players
+
+━━━━━━━━━━━━━
+
+## 📸 Screenshot
+
+![Preview](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIzA5qtgNnpz_sPuxZPHALWWesG5aqCxi4sF3UE_joUu-FU3s63uQ687c&s=10)
+
+━━━━━━━━━━━━━
+
+🍿 **Enjoy!**
