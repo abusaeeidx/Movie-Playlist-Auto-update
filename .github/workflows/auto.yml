@@ -1,0 +1,24 @@
+name: Auto Commit to README (No Push)
+
+on:
+  schedule:
+    - cron: '0 3 * * *'   
+  workflow_dispatch:      
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Update README.md with date
+        run: echo "Last update: $(date -u)" >> README.md
+
+      - name: Commit changes (no push)
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add README.md
+          git commit -m "📄 Auto update README: $(date -u)" || echo "Nothing to commit"
