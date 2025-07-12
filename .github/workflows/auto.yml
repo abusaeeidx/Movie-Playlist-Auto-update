@@ -1,26 +1,27 @@
-name: Update README without Push
+name: Update README Date
 
 on:
-  workflow_dispatch:  # Manual trigger only
+  workflow_dispatch:  # Allow manual trigger
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour (optional)
 
 jobs:
-  modify-readme:
+  update-readme:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Update README
-      run: |
-        # Overwrite README.md
-        echo "# Auto-Generated README" > README.md
-        echo "Last updated: $(date)" >> README.md
-        
-        # Simulate commit (but won't persist)
-        git config user.name "GitHub Actions"
-        git config user.email "actions@github.com"
-        git add README.md
-        git commit -m "Update README [LOCAL ONLY]"
-        
-        # Show what would happen (for debugging)
-        echo "Would commit:"
-        git show --stat
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required for commits
+
+      - name: Update README with current date/time
+        run: |
+          echo "# Last Updated" > README.md
+          echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S')" >> README.md
+
+      - name: Commit changes (locally)
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add README.md
+          git commit -m "Update README date: $(date +'%Y-%m-%d %H:%M:%S')"
