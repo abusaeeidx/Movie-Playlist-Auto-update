@@ -1,4 +1,4 @@
-name: Update README with BD Time
+name: Update README with BD Time (12-hour format)
 
 on:
   workflow_dispatch:
@@ -15,7 +15,7 @@ jobs:
         fetch-depth: 0
 
     - run: |
-        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S %Z')
+        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S %p %Z')
         if [ -f README.md ]; then
           echo -e "# Last Updated: $BD_TIME\n\n$(grep -v '^# Last Updated:' README.md)" > README.md
         else
@@ -23,7 +23,7 @@ jobs:
         fi
 
     - run: |
-        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S')
+        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %I:%M:%S %p')
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add README.md
