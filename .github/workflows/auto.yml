@@ -12,7 +12,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-      
+      with:
+        fetch-depth: 0  # Needed to allow commits
+    
     - name: Update README with current date
       run: |
         echo "# Daily Update" > README.md
@@ -23,4 +25,9 @@ jobs:
         git config --local user.email "actions@github.com"
         git config --local user.name "GitHub Actions"
         git add README.md
-        git commit -m "Update README with date $(date +'%Y-%m-%d')" --allow-empty
+        git commit -m "Update README with date $(date +'%Y-%m-%d')"
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
