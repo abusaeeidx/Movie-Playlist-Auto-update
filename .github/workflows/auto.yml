@@ -1,32 +1,31 @@
-name: Update Date in README
+name: Update README with BD Time
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */5 * * *'
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
       with:
         fetch-depth: 0
 
-    - name: Add date to README
-      run: |
+    - run: |
+        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S %Z')
         if [ -f README.md ]; then
-          echo -e "# Last Updated: $(date +'%Y-%m-%d')\n\n$(cat README.md)" > README.md
+          echo -e "# Last Updated: $BD_TIME\n\n$(grep -v '^# Last Updated:' README.md)" > README.md
         else
-          echo "# Last Updated: $(date +'%Y-%m-%d')" > README.md
+          echo "# Last Updated: $BD_TIME" > README.md
         fi
 
-    - name: Commit and push changes
-      run: |
+    - run: |
+        BD_TIME=$(TZ='Asia/Dhaka' date +'%Y-%m-%d %H:%M:%S')
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
         git add README.md
-        git commit -m "Added date to README: $(date +'%Y-%m-%d')"
+        git commit -m "Update BD timestamp: $BD_TIME"
         git push
