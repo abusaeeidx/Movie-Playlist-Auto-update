@@ -1,6 +1,10 @@
 # 🖥️🔥 Auto Update Movie M3U Playlist! 🚀📢
 
 ━━━━━━━━━━━━━
+![Preview]([https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIzA5qtgNnpz_sPuxZPHALWWesG5aqCxi4sF3UE_joUu-FU3s63uQ687c&s=10](https://raw.githubusercontent.com/abusaeeidx/Movie-Playlist-Auto-update/refs/heads/main/Screenshot_2025-07-12-22-42-00-938_com.genuine.leone.jpg))
+
+
+
 
 🔐 **Must unlock first**
 
@@ -29,7 +33,7 @@
 
 ## 📸 Screenshot
 
-![Preview](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIzA5qtgNnpz_sPuxZPHALWWesG5aqCxi4sF3UE_joUu-FU3s63uQ687c&s=10)
+![Preview]([https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIzA5qtgNnpz_sPuxZPHALWWesG5aqCxi4sF3UE_joUu-FU3s63uQ687c&s=10](https://raw.githubusercontent.com/abusaeeidx/Movie-Playlist-Auto-update/refs/heads/main/Screenshot_2025-07-12-22-42-00-938_com.genuine.leone.jpg))
 
 ━━━━━━━━━━━━━
 
