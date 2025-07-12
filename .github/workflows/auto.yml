@@ -1,24 +1,14 @@
-name: Update README Date (No Push)
-
-on:
-  workflow_dispatch:  # Run manually
-
+name: Update README (No Push)
+on: workflow_dispatch
 jobs:
-  update-readme:
+  update:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Update README with current time
-        run: |
-          echo "# Last Updated" > README.md
-          echo "**Date:** $(date +'%Y-%m-%d %H:%M:%S')" >> README.md
-
-      - name: Create a local commit (not pushed)
-        run: |
+      - uses: actions/checkout@v4
+      - run: |
+          echo "# শেষ আপডেট: $(date +'%Y-%m-%d %H:%M:%S')" > README.md
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
           git add README.md
-          git commit -m "Update README: $(date +'%Y-%m-%d %H:%M:%S')"
-          echo "Commit created (but not pushed)."
+          git commit -m "আপডেট: $(date)" || echo "⚠️ কমিট তৈরি হলো (তবে পুশ করা হবে না)"
+      - run: git show --stat  # লগে দেখাবে (কমিট কিন্তু পুশ হবে না)
