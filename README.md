@@ -1,3 +1,5 @@
+# Last Updated: 2025-07-12
+
 # 🖥️🔥 Auto Update Movie M3U Playlist! 🚀📢
 ━━━━━━━━━━━━━
 ![Preview](https://raw.githubusercontent.com/abusaeeidx/Movie-Playlist-Auto-update/refs/heads/main/Screenshot_2025-07-12-22-42-00-938_com.genuine.leone.jpg)
